@@ -1,0 +1,33 @@
+---
+const {maker, homepage, unique_name, shop_link, image_url: image_url_prompt, description} = Astro.props;
+
+const hosted_image_url = `/images/${unique_name}.png`
+const hosted_image = Bun.file(`../..${hosted_image_url}`).exists() ? hosted_image_url : null;
+
+const image_url = image_url_prompt ? image_url_prompt : hosted_image ? hosted_image : null;
+---
+
+{(function(markup) {
+    return homepage ? <a href={homepage}>{markup}</a> : markup
+})(<article>
+    <h1>{unique_name}</h1>
+    <h2>by {maker}</h2>
+    <img alt={`An image of the ${unique_name} hexpansion`} src={image_url} />
+    <p>{description}</p>
+    {shop_link ? <a href={shop_link}>Buy</a> : null}
+</article>)}
+
+<style>
+    article {
+        border: 1px solid #999;
+        padding: 20px;
+        border-radius: 8px;
+    }
+    p, h1, h2, h3 {
+        color: #eee;
+        text-decoration: none;
+    }
+    a {
+        color: #aaa;
+    }
+</style>
