@@ -2,7 +2,7 @@
 const {maker, homepage, unique_name, shop_link, image_url: image_url_prompt, description} = Astro.props;
 
 const hosted_image_url = `/images/${unique_name}.png`
-const hosted_image = Bun.file(`../..${hosted_image_url}`).exists() ? hosted_image_url : null;
+const hosted_image = await Bun.file(`../..${hosted_image_url}`).exists() ? hosted_image_url : null;
 
 const image_url = image_url_prompt ? image_url_prompt : hosted_image ? hosted_image : null;
 ---

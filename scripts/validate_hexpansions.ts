@@ -1,10 +1,8 @@
 import hexpansions_contents from '../hexpansions.json';
 import { hexpansions_file } from '../src/hexpansion_schema';
 import assert from 'node:assert';
-import {z} from 'zod';
 
 assert(Array.isArray(hexpansions_contents), "hexpansions must be an array");
-
 
 const hexpansions = hexpansions_file.parse(hexpansions_contents);
 
