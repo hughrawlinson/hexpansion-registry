@@ -27,6 +27,8 @@ jobs:
         run: pwd
       - name: Make build directory
         run: mkdir dist; mkdir hexpansion-registry
+      - name: patch vite
+        run: patch -u ./node_modules/vite/dist/node/chunks/dep-BKbDVx1T.js -i ./vite.patch
       - name: Install, build, and upload your site
         uses: withastro/action@v2
       - name: Upload site artifact

@@ -1,0 +1,10 @@
+--- ./dep-BKbDVx1T.js	2024-06-04 20:17:16.793330841 +0200
++++ ./node_modules/vite/dist/node/chunks/dep-BKbDVx1T.js	2024-06-04 20:18:02.610601670 +0200
+@@ -68721,6 +68721,7 @@
+                 .filter(Boolean);
+             emptyDir(outDir, [...skipDirs, '.git']);
+         }
++        console.log(config.publicDir);
+         if (config.build.copyPublicDir &&
+             config.publicDir &&
+             fs$l.existsSync(config.publicDir)) {
