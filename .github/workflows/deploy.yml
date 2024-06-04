@@ -23,6 +23,8 @@ jobs:
         uses: oven-sh/setup-bun@v1
       - name: Install dependencies
         run: bun install
+      - name: Make build directory
+        run: mkdir dist; mkdir hexpansion-registry
       - name: Install, build, and upload your site
         uses: withastro/action@v2
       - name: Upload site artifact
