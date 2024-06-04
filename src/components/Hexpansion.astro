@@ -1,33 +1,65 @@
 ---
-const {maker, homepage, unique_name, shop_link, image_url: image_url_prompt, description} = Astro.props;
+import { resolve } from "path";
+const {
+  maker,
+  homepage,
+  unique_name,
+  shop_link,
+  image_url: image_url_prop,
+  description,
+} = Astro.props;
 
-const hosted_image_url = `/images/${unique_name}.png`
-const hosted_image = await Bun.file(`../..${hosted_image_url}`).exists() ? hosted_image_url : null;
+const hosted_image_url = `/images/${unique_name}.png`;
+const image_file_path = resolve(
+  import.meta.dirname,
+  `../..${hosted_image_url}`
+);
 
-const image_url = image_url_prompt ? image_url_prompt : hosted_image ? hosted_image : null;
+console.log(image_file_path, await Bun.file(image_file_path).exists());
+const hosted_image = (await Bun.file(image_file_path).exists())
+  ? hosted_image_url
+  : null;
+
+const image_url = image_url_prop
+  ? image_url_prop
+  : hosted_image
+    ? import.meta.env.BASE_URL + hosted_image
+    : null;
 ---
 
-{(function(markup) {
-    return homepage ? <a href={homepage}>{markup}</a> : markup
-})(<article>
-    <h1>{unique_name}</h1>
-    <h2>by {maker}</h2>
-    <img alt={`An image of the ${unique_name} hexpansion`} src={image_url} />
-    <p>{description}</p>
-    {shop_link ? <a href={shop_link}>Buy</a> : null}
-</article>)}
+{
+  (function (markup) {
+    return homepage ? <a href={homepage}>{markup}</a> : markup;
+  })(
+    <article>
+      <h1>{unique_name}</h1>
+      <h2>by {maker}</h2>
+      {image_url && (
+        <img
+          alt={`An image of the ${unique_name} hexpansion`}
+          src={image_url}
+        />
+      )}
+      <p>{description}</p>
+      {shop_link ? <a href={shop_link}>Buy</a> : null}
+    </article>
+  )
+}
 
 <style>
-    article {
-        border: 1px solid #999;
-        padding: 20px;
-        border-radius: 8px;
-    }
-    p, h1, h2, h3 {
-        color: #eee;
-        text-decoration: none;
-    }
-    a {
-        color: #aaa;
-    }
+  article {
+    border: 1px solid #999;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  p,
+  h1,
+  h2,
+  h3 {
+    color: #eee;
+    text-decoration: none;
+  }
+  a {
+    color: #aaa;
+  }
 </style>
