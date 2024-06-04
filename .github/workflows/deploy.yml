@@ -31,11 +31,6 @@ jobs:
         run: patch -u ./node_modules/vite/dist/node/chunks/dep-BKbDVx1T.js -i ./vite.patch
       - name: Install, build, and upload your site
         uses: withastro/action@v2
-      - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          name: github-pages
-          path: ./dist
 
   deploy:
     needs: build
