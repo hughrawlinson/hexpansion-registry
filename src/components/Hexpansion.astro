@@ -32,8 +32,8 @@ const image_url = image_url_prop
     return homepage ? <a href={homepage}>{markup}</a> : markup;
   })(
     <article>
-      <h1>{unique_name}</h1>
-      <h2>by {maker}</h2>
+      <h2>{unique_name}</h2>
+      <div role="doc-subtitle">by {maker}</div>
       {image_url && (
         <img
           alt={`An image of the ${unique_name} hexpansion`}
