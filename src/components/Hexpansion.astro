@@ -33,8 +33,8 @@ const image_url = image_url_prop
     return homepage ? <a href={homepage}>{markup}</a> : markup;
   })(
     <article>
-      <h1>{unique_name}</h1>
-      <h2>by {maker}</h2>
+      <h2>{unique_name}</h2>
+      <div role="doc-subtitle">by {maker}</div>
       {image_url && (
         <img
           alt={`An image of the ${unique_name} hexpansion`}
@@ -62,9 +62,14 @@ const image_url = image_url_prop
   h3 {
     color: #eee;
     text-decoration: none;
+    margin: 0.5em 0;
   }
   a {
     color: #aaa;
+    text-decoration: none;
+  }
+  img {
+    width: 95%;
   }
   a.link:not(:nth-child(2)) {
     border-left: 1px solid white;
