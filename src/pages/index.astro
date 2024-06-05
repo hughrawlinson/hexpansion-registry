@@ -2,6 +2,7 @@
 import { hexpansions } from "../hexpansion_schema";
 import Hexpansion from "../components/Hexpansion.astro";
 import Layout from "../layouts/Layout.astro";
+import { kebabCase } from "change-case";
 ---
 
 <Layout title="Hexpansion Registry">
@@ -10,11 +11,23 @@ import Layout from "../layouts/Layout.astro";
     <p>
       Here's a quick little directory of hexpansions. <a
         href="https://github.com/hughrawlinson/hexpansion-registry"
-        >Submit yours!</a>
+        >Submit yours!</a
+      >
     </p>
+    <div class="hexpansion-index">
+      <ul>
+        {
+          hexpansions.map(({ unique_name }) => (
+            <li>
+              <a href={`#${kebabCase(unique_name)}`}>{unique_name}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
     {
       hexpansions ? (
-        <section>
+        <section class="hexpansions">
           {hexpansions.map((hexpansion) => (
             <Hexpansion {...hexpansion} />
           ))}
@@ -33,6 +46,19 @@ import Layout from "../layouts/Layout.astro";
     color: white;
     font-size: 20px;
     line-height: 1.6;
+  }
+  section.hexpansions {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .hexpansion-index {
+    border: 1px solid #999;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    max-height: 300px;
+    overflow-y: scroll;
   }
   .astro-a {
     position: absolute;

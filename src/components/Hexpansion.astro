@@ -1,5 +1,6 @@
 ---
 import { resolve } from "path";
+import { kebabCase } from "change-case";
 const {
   maker,
   homepage,
@@ -16,7 +17,6 @@ const image_file_path = resolve(
   `../..${hosted_image_url}`
 );
 
-console.log(image_file_path, await Bun.file(image_file_path).exists());
 const hosted_image = (await Bun.file(image_file_path).exists())
   ? hosted_image_url
   : null;
@@ -32,9 +32,11 @@ const image_url = image_url_prop
   (function (markup) {
     return homepage ? <a href={homepage}>{markup}</a> : markup;
   })(
-    <article>
+    <article id={kebabCase(unique_name)}>
       <h2>{unique_name}</h2>
-      <div role="doc-subtitle">by {maker}</div>
+      <span class="byline" role="doc-subtitle">
+        by {maker}
+      </span>
       {image_url && (
         <img
           alt={`An image of the ${unique_name} hexpansion`}
@@ -43,8 +45,16 @@ const image_url = image_url_prop
       )}
       <p>{description}</p>
       <div class="link-container">
-        {shop_link ? <a class="link" href={shop_link}>Buy</a> : null}
-        {hardware_repo ? <a class="link" href={hardware_repo}>Hardware Source</a> : null}
+        {shop_link ? (
+          <a class="link" href={shop_link}>
+            Buy
+          </a>
+        ) : null}
+        {hardware_repo ? (
+          <a class="link" href={hardware_repo}>
+            Hardware Source
+          </a>
+        ) : null}
       </div>
     </article>
   )
@@ -64,16 +74,20 @@ const image_url = image_url_prop
     text-decoration: none;
     margin: 0.5em 0;
   }
+  .byline {
+    margin-bottom: 24px;
+  }
   a {
     color: #aaa;
     text-decoration: none;
   }
   img {
+    margin-top: 24px;
     width: 95%;
   }
   a.link:not(:nth-child(2)) {
     border-left: 1px solid white;
-    margin-left: .7vw !important;
-    padding-left: .7vw !important;
-}
+    margin-left: 0.7vw !important;
+    padding-left: 0.7vw !important;
+  }
 </style>
