@@ -4,4 +4,10 @@
     "description": "An example hexpansion description",
     "shop_link": "https://example.com",
     "homepage": "https://example.com"
+},
+{
+    "maker": "GCHQ.NET",
+    "unique_name": "GCHQ.NET Marker 2024",
+    "description": "Marker for GCHQ.NET: Great Camp Hexpansion Quest 2024",
+    "homepage": "https://gchq.net"
 }]
