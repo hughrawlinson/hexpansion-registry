@@ -5,6 +5,7 @@ const {
   homepage,
   unique_name,
   shop_link,
+  hardware_repo,
   image_url: image_url_prop,
   description,
 } = Astro.props;
@@ -41,7 +42,10 @@ const image_url = image_url_prop
         />
       )}
       <p>{description}</p>
-      {shop_link ? <a href={shop_link}>Buy</a> : null}
+      <div class="link-container">
+        {shop_link ? <a class="link" href={shop_link}>Buy</a> : null}
+        {hardware_repo ? <a class="link" href={hardware_repo}>Hardware Source</a> : null}
+      </div>
     </article>
   )
 }
@@ -62,4 +66,9 @@ const image_url = image_url_prop
   a {
     color: #aaa;
   }
+  a.link:not(:nth-child(2)) {
+    border-left: 1px solid white;
+    margin-left: .7vw !important;
+    padding-left: .7vw !important;
+}
 </style>
