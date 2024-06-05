@@ -3,5 +3,6 @@
     "unique_name": "Demo hexpansion name",
     "description": "An example hexpansion description",
     "shop_link": "https://example.com",
+    "hardware_repo": "https://example.com",
     "homepage": "https://example.com"
 }]

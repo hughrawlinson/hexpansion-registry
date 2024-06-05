@@ -7,6 +7,7 @@ export const hexpansion_description = z.object({
     homepage: z.optional(z.string()),
     description: z.string(),
     shop_link: z.optional(z.string()),
+    hardware_repo: z.optional(z.string().url()),
     image_url: z.optional(z.string()),
 })
 
