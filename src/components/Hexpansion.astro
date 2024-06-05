@@ -34,9 +34,7 @@ const image_url = image_url_prop
   })(
     <article id={kebabCase(unique_name)}>
       <h2>{unique_name}</h2>
-      <span class="byline" role="doc-subtitle">
-        by {maker}
-      </span>
+      <span class="byline">by {maker}</span>
       {image_url && (
         <img
           alt={`An image of the ${unique_name} hexpansion`}
