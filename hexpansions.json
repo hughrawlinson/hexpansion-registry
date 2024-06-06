@@ -12,5 +12,10 @@
     "shop_link": "https://example.com",
     "hardware_repo": "https://example.com",
     "homepage": "https://example.com"
+  },
+  {
+    "maker": "Skyler Mansfield",
+    "unique_name": "Goose",
+    "description": "HONK HONK"
   }
 ]
