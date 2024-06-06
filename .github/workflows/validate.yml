@@ -21,4 +21,4 @@ jobs:
       - name: Install dependencies
         run: bun install
       - name: Validate Hexpansions
-        run: ./scripts/validate_hexpansions.ts
+        run: bun run ./scripts/validate_hexpansions.ts
