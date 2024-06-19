@@ -14,8 +14,14 @@
     "homepage": "https://example.com"
   },
   {
+    "maker": "Matthew Wilkes",
+    "unique_name": "Megadrive controller",
+    "description": "Adds a port to connect a Megadrive controller to your Tildagon"
+  },
+  {
     "maker": "Skyler Mansfield",
-    "unique_name": "Goose",
-    "description": "HONK HONK"
+    "unique_name": "Goosepansion",
+    "description": "HONK HONK",
+    "homepage": "https://github.com/skyler84-tildagon-addons/goosepansion"
   }
 ]
