@@ -6,14 +6,6 @@
     "homepage": "https://gchq.net"
   },
   {
-    "maker": "Demo hexpansion maker",
-    "unique_name": "Demo hexpansion name",
-    "description": "An example hexpansion description",
-    "shop_link": "https://example.com",
-    "hardware_repo": "https://example.com",
-    "homepage": "https://example.com"
-  },
-  {
     "maker": "Matthew Wilkes",
     "unique_name": "Megadrive controller",
     "description": "Adds a port to connect a Megadrive controller to your Tildagon"
