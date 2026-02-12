@@ -15,5 +15,12 @@
     "unique_name": "Goosepansion",
     "description": "HONK HONK",
     "homepage": "https://github.com/skyler84-tildagon-addons/goosepansion"
+  },
+  {
+    "maker": "Tony Goacher",
+    "unique_name": "TGSTL",
+    "homepage": "https://github.com/tonygoacher/tildagon_soundtolight",
+    "description": "Uses the Sparkfun sound detector to create cool sound to light effects on the tildagon badge LEDs!",
+    "image_url": "TGSTL.png"
   }
 ]
